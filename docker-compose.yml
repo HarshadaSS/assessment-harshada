@@ -1,0 +1,27 @@
+version: '3'
+networks:
+  ecommerce-network:
+    driver: bridge
+services:
+  angular-app:
+    image: assessment/frontend-img
+    container_name: frontend
+    build:
+      context: ./frontend 
+      dockerfile: Dockerfile 
+    ports:
+      - "80:80"  
+    depends_on:
+    - spring-boot-app  
+    networks:
+      - assessment
+  spring-boot-app:
+    image: assessment/backend-img  
+    container_name: backend  
+    build:
+      context: ./harshada  
+      dockerfile: Dockerfile 
+    ports:
+      - "8080:8080" 
+    networks:
+      - assessment

@@ -1,0 +1,32 @@
+<p>hotel works!</p>
+
+<h3>Filter Hotels</h3>
+<button onclick="filterRating()" class="btn">Filter By Rating</button>
+<button onclick='filterCityMumbai()' class="btn">Mumbai Hotels</button>
+<button onclick='filterCityMysuru()' class="btn">Mysuru Hotels</button>
+<button onclick='filterCityGoa()' class="btn">Goa Hotels</button>
+<button onclick='filterCityNashik()' class="btn">Nashik Hotels</button>
+
+
+<div class="hotels-list">
+
+@for(hotel of hotelsList.data; track hotel.id){
+    <div class="hotel-card">
+        <img class="photo" [src]=hotel.imageUrl alt="Image">
+        <h2>Name: {{hotel.name}}</h2>
+        
+            <p>Room Price: {{hotel.roomPrice}}</p>
+            <p>Description: {{hotel.description}}</p>
+            <p>Rating: {{hotel.rating}}</p>
+            <p>City: {{hotel.city}}</p>
+            <p>Contact Us: {{hotel.email}}</p>
+            <div>Other Facilities:
+                <li>Wifi: {{hotel.wifi}}</li>
+                <li>Gym: {{hotel.gym}}</li>
+                <li>Pool: {{hotel.pool}}</li>
+            </div>
+           
+        
+    </div>
+}
+</div>
